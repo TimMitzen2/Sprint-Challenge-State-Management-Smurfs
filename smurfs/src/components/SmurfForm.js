@@ -1,16 +1,14 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import {createSmurf} from '../actions/actions';
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { createSmurf } from "../actions/actions";
 
 const SmurfForm = () => {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const [newSmurf, setNewSmurf] = useState({
     name: "",
     age: "",
     height: ""
   });
-
-  
 
   const handleChanges = event => {
     setNewSmurf({
@@ -22,16 +20,15 @@ const SmurfForm = () => {
   const handleSubmit = event => {
     event.preventDefault();
 
-    
     dispatch(createSmurf(newSmurf));
   };
 
   return (
     <div>
       <form onSubmit={handleSubmit}>
-      <h1>Smurf Creator</h1>
-      <hr />
-        
+        <h1>Smurf Creator</h1>
+        <hr />
+
         <input
           type="text"
           name="name"
@@ -53,12 +50,10 @@ const SmurfForm = () => {
           value={newSmurf.height}
           onChange={handleChanges}
         />
-        <button type="submit">
-          Add
-        </button>
+        <button type="submit">Add</button>
       </form>
     </div>
-  )
-}
+  );
+};
 
 export default SmurfForm;
